@@ -1,13 +1,19 @@
 import React from 'react';
-import Board from'./components/Board/Board';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/Auth/Login/Login';
+import Board from './components/Board/Board';
 import './index.css';
 
 function App() {
   return (
-    <div className="app-container">
-      <h1 className="app-title">Boardium</h1>
-      <Board/>
-    </div>
+    <Router>
+      <div className="app-container">
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/board" element={<Board />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
