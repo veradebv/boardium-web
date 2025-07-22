@@ -1,6 +1,6 @@
 import React from "react";
 import { Droppable } from "react-beautiful-dnd";
-import Card from './Card';
+import Card from '../Card/Card';
 import './List.css';
 
 function List({ list, cards }) {
