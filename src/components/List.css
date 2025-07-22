@@ -1,0 +1,12 @@
+.list {
+    background: white;
+    padding: 12px;
+    border-radius: 4px;
+    width: 250px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+}
+
+.card-container {
+    margin-top: 10px;
+    min-height: 50px;
+}
