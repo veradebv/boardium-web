@@ -1,4 +1,49 @@
 .board {
-    display: flex;
-    gap: 16px;
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 16px;
+  min-height: 100vh;
+  background-color: #ebecf0;
+}
+
+.board::-webkit-scrollbar {
+  height: 8px;
+}
+
+.board::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+
+.list.add-new-list {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  padding: 12px;
+  width: 270px;
+  min-height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.list.add-new-list input {
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 6px;
+}
+
+.list.add-new-list button {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: none;
+  background-color: #0079bf;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.list.add-new-list button:hover {
+  background-color: #026aa7;
 }

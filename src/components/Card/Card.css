@@ -1,7 +1,39 @@
 .card {
-  background-color: #e2e8f0;
+  background-color: #fff;
   padding: 10px;
   margin-bottom: 8px;
   border-radius: 4px;
   cursor: grab;
+  box-shadow: 0 1px 0 rgba(9,30,66,.25);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.card:active {
+  cursor: grabbing;
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card input {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: #b04632;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.delete-btn:hover {
+  color: #7a2e1e;
 }
