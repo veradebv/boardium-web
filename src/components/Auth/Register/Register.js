@@ -4,7 +4,7 @@ import { register } from "../../../services/authServices";
 import { useNavigate, Link } from "react-router-dom";
 
 function Register() {
-    const [name, setName] = useState("");
+    const [username, setUserName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -17,7 +17,7 @@ function Register() {
         setSuccess("");
 
         try {
-            const data = await register(name, email, password);
+            const data = await register(username, email, password);
             setSuccess(data.message || "Registration successful! Please login.");
 
             // Redirect to login after success
@@ -38,10 +38,10 @@ return (
 
             <form onSubmit={handleRegister} className="register-form">
                 <input
-                    type="text"
-                    placeholder="Full Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    type="username"
+                    placeholder="username"
+                    value={username}
+                    onChange={(e) => setUserName(e.target.value)}
                     required
                     className="register-input"
                 />
