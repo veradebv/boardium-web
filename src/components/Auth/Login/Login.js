@@ -1,18 +1,29 @@
 import React, { useState } from "react";
 import'./Login.css';
-import { useNavigate } from "react-router-dom";
+import { login } from "../../../services/authServices";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState("");
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // TODO: Validate user here
+        setError("");
 
-        // Navigate to board after login
-        navigate('/board');
+        try {
+            const data = await login(email,password);
+
+            // Save token to localStorage for future requests
+            localStorage.setItem("token", data.token);
+            
+            // Redirect to board page
+            navigate('/board');
+        } catch (err) {
+            setError(err.message);
+        }
     };
 
     return (
@@ -22,6 +33,8 @@ function Login() {
                 <p className="login-subtitle">
                     Organize your projects and collaborate effortlessly
                 </p>
+
+                {error && <p className="error">{error}</p>}
 
                 <form onSubmit={handleSubmit} className="login-form">
                     <input 
@@ -45,16 +58,12 @@ function Login() {
                 </button>
             </form>
 
-            <div className="social-login">
-                <button className="social-btn google">Sign in with Google</button>
-            </div>
-
             <a href="/forgot-password" className="forgot-password">
                 Forgot password?
             </a>
 
             <p className="register-link">
-                Don't have an account? <a href="/register">Register here</a>
+                Don't have an account? <Link to="/register">Register here</Link>
             </p>
             </div>
         </div>
